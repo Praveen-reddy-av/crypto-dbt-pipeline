@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: raw
+    database: CRYPTO_LIVE
+    schema: RAW
+    tables:
+      - name: crypto_ticks
+
+models:
+  - name: stg_ticks
+    description: Cleaned ticks from raw crypto stream
+    columns:
+      - name: event_ts
+        tests: [not_null]
+      - name: event_ts_symbol_exchange
+        tests: [unique, not_null]
+
+  - name: bar_1m_ohlcv
+    description: 1-minute OHLCV bars
+    columns:
+      - name: bucket
+        tests: [not_null]
+      - name: bucket_symbol
+        tests: [unique, not_null]
