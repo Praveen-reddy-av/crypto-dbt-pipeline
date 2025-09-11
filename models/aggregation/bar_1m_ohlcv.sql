@@ -38,4 +38,4 @@ SELECT
   CONCAT(TO_VARCHAR(b.bucket),'|',b.symbol) AS bucket_symbol
 FROM b
 JOIN open_price  o USING (bucket, symbol)
-JOIN close_price c USING (bucket, symbol);
+JOIN close_price c USING (bucket, symbol)
